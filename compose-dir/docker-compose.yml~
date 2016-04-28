@@ -1,0 +1,14 @@
+version: '2'
+services:
+   web:
+      build: .
+      ports:
+         - "5000:80"
+      volumes:
+         - /var/www:/usr/share/nginx/html
+      links:
+         - mongo
+   mongodb:
+      image: mongo
+
+     
