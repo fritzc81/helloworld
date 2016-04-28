@@ -7,7 +7,15 @@ services:
       volumes:
          - /var/www:/usr/share/nginx/html
       links:
-         - mongo
+         - tomcat
+      depends_on: 
+         - tomcat
+   tomcat:
+       image: tomcat:8.0
+       links: 
+          - mongodb
+       depends_on: 
+          - mongodb
    mongodb:
       image: mongo
 
